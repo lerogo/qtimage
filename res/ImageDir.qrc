@@ -1,0 +1,44 @@
+<RCC>
+    <qresource prefix="/img">
+		<file>SimpleImage.svg</file>
+		<file>ButtonHover.png</file>
+        <file>ButtonNormal.png</file>
+        <file>ButtonPressed.png</file>
+        <file>frame_3.png</file>
+        <file>frame_1.png</file>
+        <file>frame_2.png</file>
+		<file>doOpen.svg</file>
+		<file>doClose.svg</file>
+		<file>doSave.svg</file>
+		<file>doSave_As.svg</file>
+		<file>doExit.svg</file>
+		<file>doAbout.svg</file>
+		<file>doRestore.svg</file>
+		<file>doZoom.svg</file>
+		<file>doGrayscale.svg</file>
+		<file>doWarm.svg</file>
+		<file>doCool.svg</file>
+		<file>doMovie_frame.svg</file>
+		<file>doClassic_frame.svg</file>
+		<file>doFlower_frame.svg</file>
+		<file>doBrightness.svg</file>
+		<file>doHorizontal.svg</file>
+		<file>doVertical.svg</file>
+		<file>doSimple.svg</file>
+		<file>doGauss.svg</file>
+		<file>doMeida_Filter.svg</file>
+		<file>doLaplace.svg</file>
+		<file>doBinaryzation.svg</file>
+		<file>doContour_extraction.svg</file>
+		<file>doDilate.svg</file>
+		<file>doExpansion.svg</file>
+		<file>doOpening.svg</file>
+		<file>doClosing.svg</file>
+		<file>doRotate.svg</file>
+		<file>do_adjust.svg</file>
+		<file>do_adjust_left.svg</file>
+		<file>do_adjust_right.svg</file>
+		<file>doRotate_left.svg</file>
+		<file>doRotate_right.svg</file>
+    </qresource>
+</RCC>

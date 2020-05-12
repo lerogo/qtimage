@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1400</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ImageQt</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../res/ImageDir.qrc">
+    <normaloff>:/img/SimpleImage.svg</normaloff>:/img/SimpleImage.svg</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="GraphicsView" name="leftGraphicsView" native="true"/>
+        </item>
+        <item>
+         <widget class="GraphicsView" name="rightGraphicsView" native="true"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1400</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>文件(&amp;F)</string>
+    </property>
+    <addaction name="doOpen"/>
+    <addaction name="doClose"/>
+    <addaction name="doSave"/>
+    <addaction name="doSave_As"/>
+    <addaction name="separator"/>
+    <addaction name="doExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>编辑</string>
+    </property>
+    <addaction name="doRestore"/>
+    <addaction name="do_adjust"/>
+    <addaction name="do_adjust_left"/>
+    <addaction name="do_adjust_right"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+    <addaction name="doAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuGeometric">
+    <property name="title">
+     <string>变换</string>
+    </property>
+    <widget class="QMenu" name="menuFlip">
+     <property name="title">
+      <string>翻转
+</string>
+     </property>
+     <addaction name="doHorizontal"/>
+     <addaction name="doVertical"/>
+    </widget>
+    <addaction name="doZoom"/>
+    <addaction name="menuFlip"/>
+    <addaction name="doRotate"/>
+    <addaction name="doRotate_left"/>
+    <addaction name="doRotate_right"/>
+   </widget>
+   <widget class="QMenu" name="menuArtistic_Effect">
+    <property name="title">
+     <string>效果</string>
+    </property>
+    <widget class="QMenu" name="menuFrame">
+     <property name="title">
+      <string>相框</string>
+     </property>
+     <addaction name="doMovie_frame"/>
+     <addaction name="doClassic_frame"/>
+     <addaction name="doFlower_frame"/>
+    </widget>
+    <widget class="QMenu" name="menuTemperature">
+     <property name="title">
+      <string>色温</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>:/img/src/temperature_72px.png</normaloff>:/img/src/temperature_72px.png</iconset>
+     </property>
+     <addaction name="doCool"/>
+     <addaction name="doWarm"/>
+    </widget>
+    <addaction name="doBrightness"/>
+    <addaction name="menuFrame"/>
+    <addaction name="menuTemperature"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menu_mh">
+    <property name="title">
+     <string>模糊</string>
+    </property>
+    <addaction name="doSimple"/>
+    <addaction name="doGauss"/>
+   </widget>
+   <widget class="QMenu" name="menu_zq">
+    <property name="title">
+     <string>增强</string>
+    </property>
+    <addaction name="doMeida_Filter"/>
+    <addaction name="doLaplace"/>
+   </widget>
+   <widget class="QMenu" name="menu_ts">
+    <property name="title">
+     <string>特殊</string>
+    </property>
+    <addaction name="doGrayscale"/>
+    <addaction name="doContour_extraction"/>
+    <addaction name="doBinaryzation"/>
+    <addaction name="doDilate"/>
+    <addaction name="doExpansion"/>
+    <addaction name="doOpening"/>
+    <addaction name="doClosing"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuGeometric"/>
+   <addaction name="menuArtistic_Effect"/>
+   <addaction name="menu_mh"/>
+   <addaction name="menu_zq"/>
+   <addaction name="menu_ts"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar_File">
+   <property name="windowTitle">
+    <string>文件</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QToolBar" name="toolBar_Edit">
+   <property name="windowTitle">
+    <string>变幻</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QToolBar" name="toolBar_Change">
+   <property name="windowTitle">
+    <string>系数</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QToolBar" name="toolBar_Special">
+   <property name="windowTitle">
+    <string>特殊处理</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QToolBar" name="toolBar_Cal">
+   <property name="windowTitle">
+    <string>计算</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QToolBar" name="toolBar_About">
+   <property name="windowTitle">
+    <string>关于和退出</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <action name="doOpen">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doOpen.svg</normaloff>:/img/doOpen.svg</iconset>
+   </property>
+   <property name="text">
+    <string>打开(&amp;O)</string>
+   </property>
+   <property name="toolTip">
+    <string>打开一张图片</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="doClose">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doClose.svg</normaloff>:/img/doClose.svg</iconset>
+   </property>
+   <property name="text">
+    <string>关闭图片(&amp;W)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="doSave">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doSave.svg</normaloff>:/img/doSave.svg</iconset>
+   </property>
+   <property name="text">
+    <string>保存(&amp;S)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="doSave_As">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doSave_As.svg</normaloff>:/img/doSave_As.svg</iconset>
+   </property>
+   <property name="text">
+    <string>另存为(F12)</string>
+   </property>
+   <property name="shortcut">
+    <string>F12</string>
+   </property>
+  </action>
+  <action name="doExit">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doExit.svg</normaloff>:/img/doExit.svg</iconset>
+   </property>
+   <property name="text">
+    <string>退出(&amp;Q)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="doAbout">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doAbout.svg</normaloff>:/img/doAbout.svg</iconset>
+   </property>
+   <property name="text">
+    <string>关于(F1)</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="doRestore">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doRestore.svg</normaloff>:/img/doRestore.svg</iconset>
+   </property>
+   <property name="text">
+    <string>恢复(&amp;Z)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="doZoom">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doZoom.svg</normaloff>:/img/doZoom.svg</iconset>
+   </property>
+   <property name="text">
+    <string>缩放(&amp;+)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
+  </action>
+  <action name="doGrayscale">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doGrayscale.svg</normaloff>:/img/doGrayscale.svg</iconset>
+   </property>
+   <property name="text">
+    <string>灰度</string>
+   </property>
+  </action>
+  <action name="doWarm">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doWarm.svg</normaloff>:/img/doWarm.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Warm</string>
+   </property>
+  </action>
+  <action name="doCool">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doCool.svg</normaloff>:/img/doCool.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Cool</string>
+   </property>
+  </action>
+  <action name="doMovie_frame">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doMovie_frame.svg</normaloff>:/img/doMovie_frame.svg</iconset>
+   </property>
+   <property name="text">
+    <string>电影相框</string>
+   </property>
+  </action>
+  <action name="doClassic_frame">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doClassic_frame.svg</normaloff>:/img/doClassic_frame.svg</iconset>
+   </property>
+   <property name="text">
+    <string>经典相框</string>
+   </property>
+  </action>
+  <action name="doFlower_frame">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doFlower_frame.svg</normaloff>:/img/doFlower_frame.svg</iconset>
+   </property>
+   <property name="text">
+    <string>小花相框</string>
+   </property>
+  </action>
+  <action name="doBrightness">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doBrightness.svg</normaloff>:/img/doBrightness.svg</iconset>
+   </property>
+   <property name="text">
+    <string>亮度</string>
+   </property>
+  </action>
+  <action name="doHorizontal">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doHorizontal.svg</normaloff>:/img/doHorizontal.svg</iconset>
+   </property>
+   <property name="text">
+    <string>水平翻转</string>
+   </property>
+  </action>
+  <action name="doVertical">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doVertical.svg</normaloff>:/img/doVertical.svg</iconset>
+   </property>
+   <property name="text">
+    <string>垂直翻转</string>
+   </property>
+  </action>
+  <action name="doSimple">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doSimple.svg</normaloff>:/img/doSimple.svg</iconset>
+   </property>
+   <property name="text">
+    <string>简单模糊</string>
+   </property>
+  </action>
+  <action name="doGauss">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doGauss.svg</normaloff>:/img/doGauss.svg</iconset>
+   </property>
+   <property name="text">
+    <string>高斯模糊</string>
+   </property>
+  </action>
+  <action name="doMeida_Filter">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doMeida_Filter.svg</normaloff>:/img/doMeida_Filter.svg</iconset>
+   </property>
+   <property name="text">
+    <string>中值滤波</string>
+   </property>
+  </action>
+  <action name="doLaplace">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doLaplace.svg</normaloff>:/img/doLaplace.svg</iconset>
+   </property>
+   <property name="text">
+    <string>拉普拉斯锐化</string>
+   </property>
+  </action>
+  <action name="doBinaryzation">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doBinaryzation.svg</normaloff>:/img/doBinaryzation.svg</iconset>
+   </property>
+   <property name="text">
+    <string>二值化</string>
+   </property>
+  </action>
+  <action name="doContour_extraction">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doContour_extraction.svg</normaloff>:/img/doContour_extraction.svg</iconset>
+   </property>
+   <property name="text">
+    <string>轮廓提取</string>
+   </property>
+  </action>
+  <action name="doDilate">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doDilate.svg</normaloff>:/img/doDilate.svg</iconset>
+   </property>
+   <property name="text">
+    <string>腐蚀</string>
+   </property>
+  </action>
+  <action name="doExpansion">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doExpansion.svg</normaloff>:/img/doExpansion.svg</iconset>
+   </property>
+   <property name="text">
+    <string>膨胀</string>
+   </property>
+  </action>
+  <action name="doOpening">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doOpening.svg</normaloff>:/img/doOpening.svg</iconset>
+   </property>
+   <property name="text">
+    <string>开运算</string>
+   </property>
+  </action>
+  <action name="doClosing">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doClosing.svg</normaloff>:/img/doClosing.svg</iconset>
+   </property>
+   <property name="text">
+    <string>闭运算</string>
+   </property>
+  </action>
+  <action name="doRotate">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doRotate.svg</normaloff>:/img/doRotate.svg</iconset>
+   </property>
+   <property name="text">
+    <string>旋转</string>
+   </property>
+  </action>
+  <action name="do_adjust">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/do_adjust.svg</normaloff>:/img/do_adjust.svg</iconset>
+   </property>
+   <property name="text">
+    <string>适应屏幕(&amp;D)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="do_adjust_left">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/do_adjust_left.svg</normaloff>:/img/do_adjust_left.svg</iconset>
+   </property>
+   <property name="text">
+    <string>左图适应(&amp;L)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Left</string>
+   </property>
+  </action>
+  <action name="do_adjust_right">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/do_adjust_right.svg</normaloff>:/img/do_adjust_right.svg</iconset>
+   </property>
+   <property name="text">
+    <string>右图适应(&amp;R)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Right</string>
+   </property>
+  </action>
+  <action name="doRotate_left">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doRotate_left.svg</normaloff>:/img/doRotate_left.svg</iconset>
+   </property>
+   <property name="text">
+    <string>逆时针旋转(&amp;L)</string>
+   </property>
+   <property name="toolTip">
+    <string>逆时针旋转</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="doRotate_right">
+   <property name="icon">
+    <iconset resource="../res/ImageDir.qrc">
+     <normaloff>:/img/doRotate_right.svg</normaloff>:/img/doRotate_right.svg</iconset>
+   </property>
+   <property name="text">
+    <string>顺时针旋转(&amp;R)</string>
+   </property>
+   <property name="toolTip">
+    <string>顺时针旋转</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>GraphicsView</class>
+   <extends>QWidget</extends>
+   <header location="global">graphicsview.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../res/ImageDir.qrc"/>
+ </resources>
+ <connections/>
+</ui>
