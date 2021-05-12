@@ -12,5 +12,6 @@
  - 模糊：简单模糊、高斯模糊
  - 增强：中值滤波、拉普拉斯锐化
  - 特殊：灰度、轮廓提取、二值化、腐蚀、膨胀、开运算、闭运算
+ - 报告：[课程设计报告地址](https://github.com/lerogo/shareCode/tree/master/njust_homework/C++%E8%AF%BE%E8%AE%BE)
 ------------
 ![image](https://github.com/lerogo/qtimage/raw/master/test.png)
